@@ -2,7 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
 I have created this app to understand the flow of angular and how to use its features to develope single page applications. Also this app is useful to learn concepts in angular 4.
-
+#Editor
+You can use Microsoft's Visual Studio Code to view code hierarchy.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
