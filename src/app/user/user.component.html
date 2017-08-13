@@ -1,0 +1,96 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+</div>
+<ul>
+    
+    
+</ul> 
+<h3><u>To way Binding :</u></h3>
+<div style="width: 50%; float:left">
+   <ul>
+  <li>
+   <b> Name : </b>&nbsp;&nbsp;
+    <input type ="text" [(ngModel)]="CustomerObject.Name">
+  </li> 
+  <br/>
+  <li>
+    <b> Code : </b>&nbsp;&nbsp;&nbsp;
+   <input type ="text" [(ngModel)]="CustomerObject.Code">
+  </li>
+  <br/>
+  <li>
+    <b> Amount : </b>
+  <input type ="text" [(ngModel)]="CustomerObject.Amount">
+  </li>
+</ul>
+
+</div>
+
+<div style="width: 50%; float:right">
+<ul>
+  <li>{{CustomerObject.Name}}</li><br/>
+  <li>{{CustomerObject.Code}}</li><br/>
+  <li>{{CustomerObject.Amount}}</li>
+</ul>
+</div>
+
+<div style="clear:both;"></div>
+<div style="width: 50%; float:left">
+  <h3><u>Form Validations:</u></h3>
+  <form [formGroup]="formGroup" (ngSubmit)="addSport(sport.value)">
+     <div>
+    <label for="Sport">Sport:</label>
+    <input type="text" formControlName="SportNameControl" #sport> &nbsp;
+    <label
+[hidden]="!(formGroup.controls['SportNameControl'].hasError('required'))" style="color:red"> *name is required </label>
+<br/>
+    <button type ="submit" [disabled]="!(formGroup.valid)" >Add</button>
+  </div>
+  </form>
+</div>
+<br>
+  <div style="width: 50%; float:right">
+    <ul>
+  <li *ngFor="let sport of sports; let i = index">
+    {{i + 1}}: {{sport}} <button (click)="deleteSport(i)">X</button>
+  </li>
+</ul>
+
+  </div>
+
+  <br/>
+  <div style="clear:both;"></div>
+<h3> <u>Subscribe to Service using http module :</u> </h3>
+<div *ngFor="let data of jsonData">
+  <b>Name :</b>{{data.name}}  <p><i>e-mail:</i> {{data.email}}</p>
+</div>
+
+<div class="col-md-12">
+    <h3><u>Order By using pipes in angular :</u> </h3>
+  <table class="table table-responsive table-hover">
+    <tr>
+      <th class="pointer" (click)="sort('CategoryID')" >Category ID
+        <i class="fa" [ngClass]="{'fa-sort': column != 'CategoryID', 'fa-sort-asc': (column == 'CategoryID' && isDesc), 'fa-sort-desc': (column == 'CategoryID' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+      <th>Category</th>
+      <th>Description</th>
+       <th class="pointer" (click)="sort('CreatedDate')" >CreatedDate
+        <i class="fa" [ngClass]="{'fa-sort': column != 'CreatedDate', 'fa-sort-asc': (column == 'CreatedDate' && isDesc), 'fa-sort-desc': (column == 'CreatedDate' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+      <!-- <th>Date</th> -->
+    </tr>
+    
+    <tr *ngFor="let item of records | orderBy: {property: column, direction: direction}">
+      <td>{{item.CategoryID}}</td>
+      <td>{{item.CategoryName}}</td>
+      <td>{{item.Description}}</td>
+       <td>{{item.CreatedDate}}</td> 
+    </tr>
+  </table>
+</div>
