@@ -1,6 +1,7 @@
 # Myapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
+I have created this app to understand the flow of angular and how to use its features to develope single page applications. Also this app is useful to learn concepts in angular 4.
 
 ## Development server
 
